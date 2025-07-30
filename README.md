@@ -6,12 +6,11 @@ This is an interactive, ML-enhanced contact form built using **Django**, integra
 
 ## 🚀 Features
 
-- ✅ **Contact Form** with animated transitions (GSAP)
-- 🤖 **AI Classification** of messages (Scikit-learn)
-- 🗂️ **View Previous Submissions** with filter options
-- 📂 Submissions stored in SQLite for easy access
-- ⚡ **ScrollTrigger + Loading Animations** (GSAP)
-- 🖤 Inspired by designs from [Awwwards.com](https://www.awwwards.com/)
+- **Contact Form** with animated transitions (GSAP)
+- **AI Classification** of messages (Scikit-learn)
+- **View Previous Submissions** with filter options
+- Submissions stored in SQLite for easy access
+- **ScrollTrigger + Loading Animations** (GSAP)
 
 ---
 
@@ -67,7 +66,7 @@ contactsite/
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
-````
+   ```
 
 2. **Create a virtual environment**
 
