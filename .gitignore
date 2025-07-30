@@ -1,0 +1,32 @@
+# Python
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.sqlite
+*.db
+*.db-journal
+.env
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Django migrations
+*/migrations/__pycache__/
+*/migrations/*.py[cod]
+*/migrations/*.py
+
+# Joblib Model
+classifier.joblib
+
+# OS
+.DS_Store
+Thumbs.db

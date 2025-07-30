@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submissions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f1117;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      padding: 50px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .submission {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.1);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background: transparent;
+      border: 2px solid #00e5ff;
+      color: #00e5ff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .back-button a:hover {
+      background: #00e5ff;
+      color: #0f1117;
+    }
+  </style>
+</head>
+<body>
+  <h1>Previous Submissions</h1>
+
+  {% for submission in messages %}
+    <div class="submission">
+      <p><strong>Name:</strong> {{ submission.name }}</p>
+      <p><strong>Email:</strong> {{ submission.email }}</p>
+      <p><strong>Message:</strong> {{ submission.message }}</p>
+      <p><strong>Category:</strong> {{ submission.category }}</p>
+      <p><strong>Timestamp:</strong> {{ submission.timestamp }}</p>
+    </div>
+  {% empty %}
+    <p>No submissions yet.</p>
+  {% endfor %}
+
+  <div class="back-button">
+    <a href="{% url 'contact' %}" id="back-home">← Back to Home</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".submission").forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+        duration: 0.6,
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+        delay: i * 0.1
+      });
+    });
+
+    gsap.from("#back-home", {
+      scrollTrigger: {
+        trigger: "#back-home",
+        start: "top 90%",
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+  </script>
+</body>
+</html>
